@@ -2,8 +2,8 @@
 
 asnyc/await는 ES8에 해당하는 문법. Promise를 더 쉽게 사용 가능하게 함.
 ● 사용법
-- 함수 앞에 'async' 키워드 붙임.
-- Promise 앞에 'await' 키워드 붙임.
+ - 함수 앞에 'async' 키워드 붙임.
+ - Promise 앞에 'await' 키워드 붙임.
 
 */
 
