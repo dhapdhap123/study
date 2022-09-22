@@ -19,14 +19,14 @@ const bestUniv = university.KU;
 
 //객체 비구조화
 const { SNU, KU, YU } = university;
-console.log( SNU, KU, YU );
+console.log( SNU, KU, YU ); // 서울대학교 고려대학교 연세대학교
 
 //더 나아가 파라미터 단계에서 객체 비구조화 할당 가능
 function printBestUniv({ KU }) {
     const text = `최고의 대학 : ${KU}`
     console.log(text);
 }
-printBestUniv(university);
+printBestUniv(university); // 최고의 대학 : 고려대학교
 
 // 객체 안에 함수 넣기
 const dog = {
