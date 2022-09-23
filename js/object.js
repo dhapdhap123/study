@@ -12,14 +12,14 @@ const sample = {
 // value는 object.key로 읽어옴
 const university = {
     SNU: '서울대학교',
-    KU : '고려대학교',
-    YU : '연세대학교'
+    KU: '고려대학교',
+    YU: '연세대학교'
 }
 const bestUniv = university.KU;
 
 //객체 비구조화
 const { SNU, KU, YU } = university;
-console.log( SNU, KU, YU ); // 서울대학교 고려대학교 연세대학교
+console.log(SNU, KU, YU); // 서울대학교 고려대학교 연세대학교
 
 //더 나아가 파라미터 단계에서 객체 비구조화 할당 가능
 function printBestUniv({ KU }) {
@@ -48,16 +48,16 @@ dog.name = '야옹이'
 let user = {
     name: "John",
     surname: "Smith",
-  
+
     get fullName() { //user.fullName 읽을 때 실행
-      return `${this.name} ${this.surname}`;
+        return `${this.name} ${this.surname}`;
     },
-  
+
     set fullName(value) { //user.fullName = ? 수정할 때 실행
-      [this.name, this.surname] = value.split(" ");
+        [this.name, this.surname] = value.split(" ");
     }
 };
-  
+
 // 주어진 값을 사용해 set fullName이 실행됩니다.
 user.fullName = "Alice Cooper";
 

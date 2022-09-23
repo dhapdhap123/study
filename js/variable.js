@@ -15,9 +15,9 @@ Hoisting : 변수의 선언과 초기화를 분리한 후,
 
 
 var a = 123;
-function func() { 
+function func() {
     console.log(a); // undefined 
-    var a = 456;  
+    var a = 456;
     console.log(a); // 456
 }
 func();
@@ -28,7 +28,7 @@ var a = 123;
 function func() {
     var a
     console.log(a); // undefined 
-    a = 456;  
+    a = 456;
     console.log(a); // 456
 }
 func();

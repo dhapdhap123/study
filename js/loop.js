@@ -12,14 +12,14 @@ for (let i = 0; i < 10; i++) {
 
 // while문
 let i = 0;
-while (i < 10){
+while (i < 10) {
     console.log(i);
     i++;
 }
 
 // for ... of : 배열에 관한 반복문. 그러나 보통은 배열의 내장함수 사용
 let numbers = [10, 20, 30, 40, 50];
-for (let number of numbers){
+for (let number of numbers) {
     console.log(number);
 }
 

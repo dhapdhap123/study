@@ -20,14 +20,14 @@ JS는 동기식 언어! 하나의 스레드를 따라 동작이 일어남.
 
 // 예시 코드
 function work1() {
-    const start = Date.now();
-    for (let i = 0; i < 1000000000; i++) {}
-    const end = Date.now();
-    console.log(end - start + 'ms');
-  }
-  
-  work1();
-  console.log('다음 작업');
+  const start = Date.now();
+  for (let i = 0; i < 1000000000; i++) { }
+  const end = Date.now();
+  console.log(end - start + 'ms');
+}
+
+work1();
+console.log('다음 작업');
 // 동기로 진행됨.
 // 출력 : 738ms => 다음 작업
 
@@ -37,7 +37,7 @@ console.log('\n----▲동기----▼비동기----\n')
 function work2() {
   setTimeout(() => {
     const start = Date.now();
-    for (let i = 0; i < 1000000000; i++) {}
+    for (let i = 0; i < 1000000000; i++) { }
     const end = Date.now();
     console.log(end - start + 'ms');
   }, 0);
@@ -56,7 +56,7 @@ console.log('\n----▲콜백X----▼콜백O----\n')
 function work(callback) {
   setTimeout(() => {
     const start = Date.now();
-    for (let i = 0; i < 1000000000; i++) {}
+    for (let i = 0; i < 1000000000; i++) { }
     const end = Date.now();
     console.log(end - start + 'ms');
     callback();

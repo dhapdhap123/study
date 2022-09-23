@@ -22,59 +22,59 @@ const myPromise = new Promise((resolve, reject) => {
 // 예시
 function increaseAndPrint(n) {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const value = n + 1;
-        if (value === 5) {
-          const error = new Error();
-          error.name = 'ValueIsFiveError';
-          reject(error);
-          return;
-        }
-        console.log(value);
-        resolve(value);
-      }, 1000);
+        setTimeout(() => {
+            const value = n + 1;
+            if (value === 5) {
+                const error = new Error();
+                error.name = 'ValueIsFiveError';
+                reject(error);
+                return;
+            }
+            console.log(value);
+            resolve(value);
+        }, 1000);
     });
-  }
-  increaseAndPrint(0).then((n) => {
+}
+increaseAndPrint(0).then((n) => {
     console.log('result: ', n);
-  })
+})
 
 // then은 여러번 연속해 사용도 가능
 function increaseAndPrint(n) {
-return new Promise((resolve, reject) => {
-    setTimeout(() => {
-    const value = n + 1;
-    if (value === 5) {
-        const error = new Error();
-        error.name = 'ValueIsFiveError';
-        reject(error);
-        return;
-    }
-    console.log(value);
-    resolve(value);
-    }, 1000);
-});
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const value = n + 1;
+            if (value === 5) {
+                const error = new Error();
+                error.name = 'ValueIsFiveError';
+                reject(error);
+                return;
+            }
+            console.log(value);
+            resolve(value);
+        }, 1000);
+    });
 }
 
 increaseAndPrint(0)
-.then(n => {
-    return increaseAndPrint(n);
-})
-.then(n => {
-    return increaseAndPrint(n);
-})
-.then(n => {
-    return increaseAndPrint(n);
-})
-.then(n => {
-    return increaseAndPrint(n);
-})
-.then(n => {
-    return increaseAndPrint(n);
-})
-.catch(e => {
-    console.error(e);
-});
+    .then(n => {
+        return increaseAndPrint(n);
+    })
+    .then(n => {
+        return increaseAndPrint(n);
+    })
+    .then(n => {
+        return increaseAndPrint(n);
+    })
+    .then(n => {
+        return increaseAndPrint(n);
+    })
+    .then(n => {
+        return increaseAndPrint(n);
+    })
+    .catch(e => {
+        console.error(e);
+    });
 
 /*
 이렇게도 가능

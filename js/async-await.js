@@ -11,13 +11,13 @@ asnyc/await는 ES8에 해당하는 문법. Promise를 더 쉽게 사용 가능�
 function sleep1(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
+
 async function process1() {
     console.log('안녕하세요!');
     await sleep1(1000); // 1초쉬고
     console.log('반갑습니다!');
 }
-  
+
 process1();
 
 /* 함수에서 async 사용하면, 해당 함수는 결과값으로 Promise 반환.
@@ -36,8 +36,8 @@ process().then(() => {
 
 function sleep2(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
-  
+}
+
 async function makeError() {
     await sleep2(1000);
     const error = new Error();
@@ -45,11 +45,11 @@ async function makeError() {
 }
 
 async function process2() {
-try {
-    await makeError();
-} catch (e) {
-    console.error(e);
-}
+    try {
+        await makeError();
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 process2();

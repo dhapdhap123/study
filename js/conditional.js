@@ -14,23 +14,23 @@ const 조건2 = 2;
 
 // if문
 if (조건) {
-    코드;
+  코드;
 }
 
 // if-else문
 if (조건) {
-    코드;
+  코드;
 } else {
-    코드;
+  코드;
 }
 
 // if-else if문
 if (조건1) {
-    코드;
+  코드;
 } else if (조건2) {
-    코드;
+  코드;
 } else {
-    코드;
+  코드;
 }
 
 // switch/case 문

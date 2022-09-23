@@ -6,9 +6,9 @@
 */
 function Animal(type, name, sound) {
     this.type = type;
-    this.name = name;    
+    this.name = name;
     this.sound = sound;
-    this.say = function() {
+    this.say = function () {
         console.log(this.sound);
     };
 }
@@ -24,7 +24,7 @@ function Animals(type, name, sound) {
     this.name = name;
     this.sound = sound;
 }
-Animals.prototype.say = function() {
+Animals.prototype.say = function () {
     console.log(this.sound);
 };
 Animals.prototype.sharedValue = 1;
@@ -33,7 +33,7 @@ function Dog(name, sound) {
     Animals.call(this, '개', name, sound);
 }
 Dog.prototype = Animals.prototype;
-  
+
 function Cat(name, sound) {
     Animals.call(this, '고양이', name, sound);
 }

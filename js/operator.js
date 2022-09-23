@@ -25,7 +25,7 @@ console.log(x--, --x)
 true && true // t && t는 true 반환
 true && false // t && f는 false 반환
 false && true // f && t는 false 반환
-false && (3 ==4) // f && f는 false 반환
+false && (3 == 4) // f && f는 false 반환
 
 // => 활용 : js나 리액트에서 선제조건(t/f)에 따라 후번 피연산자 반환 가능(삼항연산처럼)
 // false && 아무거나는 거짓으로 단락 평가.(왼쪽 -> 오른쪽 순서이기 때문)

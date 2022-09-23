@@ -12,8 +12,8 @@ array = [1, 2, 3, 4, 5]
 array[0];
 
 // 배열에 새 항목 추가 : push 메소드 사용
-objects = [{name: '멍멍이'}, {name: '야옹이'}];
-objects.push({name: '영찬이'});
+objects = [{ name: '멍멍이' }, { name: '야옹이' }];
+objects.push({ name: '영찬이' });
 console.log(objects);
 
 // 배열의 크기 : length 이용
@@ -21,7 +21,7 @@ console.log(objects.length);
 
 /* forEach : for문 간단하게 대체 */
 a = [1, 2, 3, 4, 5]
-for (let i = 0; i < a.length; i++){
+for (let i = 0; i < a.length; i++) {
     console.log(a[i])
 }
 //를 아래처럼 간단하게
@@ -131,7 +131,7 @@ const tierList = [
     }
 ]
 let result = tierList.reduce((prev, cur) => {
-    if (cur.tier > 2){
+    if (cur.tier > 2) {
         prev.push(cur);
     }
     return prev;
