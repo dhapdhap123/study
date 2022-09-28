@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/dhapdhap123/study/issues"
   },
-  "homepage": "https://github.com/dhapdhap123/study#readme"
+  "homepage": "https://github.com/dhapdhap123/study#readme",
+  "dependencies": {
+    "node-sass": "^7.0.3"
+  }
 }
