@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Average from './Average';
+import React, { useState } from "react";
+import InputSample from "./InputSample";
 
 const App = () => {
   return (
     <div>
-      <Average />
+      <InputSample />
     </div>
   );
 };
