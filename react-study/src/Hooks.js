@@ -11,7 +11,7 @@ import React, {
 ● useState : 상태값 관리, 값 변경될 때 re-rendering
 ● useRef : 특정 DOM에 접근(focus, 스크롤박스, canvas 사용 등)
 ● useEffect : 컴포넌트가 마운트(처음 나타날 때), 언마운트(사라질 때), 업데이트(특정 props가 바뀔 때) 특정 작업 처리
-● useMemo
+● useMemo : 성능 최적화
 ● useCallback
 ● useReducer
 */
