@@ -1,61 +1,31 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useCallback, useReducer } from "react";
 
-function InputSample() {
-  const [buttons, setButtons] = useState([
-    {
-      id: 1,
-      value: 1,
-      visible: true,
-    },
-    {
-      id: 2,
-      value: 2,
-      visible: true,
-    },
-  ]);
-  useEffect(() => {
-    console.log("컴포넌트가 화면에 나타남");
-    return () => {
-      console.log("컴포넌트가 화면에서 사라짐");
-    };
-  }, []);
-
-  const nextId = useRef(3);
-  const newButton = {
-    id: nextId.current,
-    value: nextId.current,
-    visible: true,
-  };
-  const onCreate = () => {
-    setButtons(buttons.concat(newButton));
-    nextId.current += 1;
-  };
-  const onRemove = () => {
-    if (nextId.current !== 1) {
-      setButtons(buttons.filter((b) => b.id !== nextId.current - 1));
-      nextId.current -= 1;
-    } else {
+function reducer(state, action) {
+  switch (action.type) {
+    case "CHANGE":
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+    case "RESET":
+      return Object.keys(state).reduce((acc, current) => {
+        acc[current] = "";
+        return acc;
+      }, {});
+    default:
       return;
-    }
-  };
-  const onToggle = (e) => {
-    setButtons(
-      buttons.map((b) =>
-        b.id === parseInt(e.target.id) ? { ...b, visible: !b.visible } : b
-      )
-    );
-  };
-  return (
-    <>
-      <button onClick={onCreate}>생성</button>
-      <button onClick={onRemove}>삭제</button>
-      {buttons.map((b) => (
-        <button key={b.id} onClick={onToggle} id={b.id}>
-          {b.visible === true ? b.value : null}
-        </button>
-      ))}
-    </>
-  );
+  }
 }
 
-export default InputSample;
+function useInputs(initialForm) {
+  const [state, dispatch] = useReducer(reducer, initialForm);
+  // change
+  const onChange = useCallback((e) => {
+    const { name, value } = e.target;
+    dispatch({ type: "CHANGE", name, value });
+  }, []);
+  const reset = useCallback(() => dispatch("RESET"), []);
+  return [state, onChange, reset];
+}
+
+export default useInputs;
