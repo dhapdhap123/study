@@ -6,8 +6,15 @@ import React from "react";
     => 이러한 번거로움을 ContextAPI와 dispatch를 함께 사용해 해결
 */
 
-// Context를 만드는 함수,기본값(context 값 따로 지정하지 않았을 경우) 설정
-const UserDispatch = React.createContext(null);
+// Context를 만드는 함수, 기본값(context 값 따로 지정하지 않았을 경우) 설정
+export const UserDispatch = React.createContext(null);
+// import { UserDispatch } from "./App";
 
 // 만든 후에는 Context 안에 있는 Provider 컴포넌트를 통해 Context 값 지정 가능
-<UserDispatch.Provider value={"이런 식으로 지정해요"}></UserDispatch.Provider>;
+<UserDispatch.Provider value={"이런 식으로 지정해요"}>
+  내용은 여기에
+</UserDispatch.Provider>;
+/*
+    ex) useRecuder로 state만든 곳에서 context까지 만들어 export 해주고,
+    이를 쓰고 싶은 곳에서 conext import해서 dispatch 해줌.
+*/
