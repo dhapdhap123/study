@@ -1,3 +1,9 @@
+/*
+  number, string, boolean, array, object
+  tuple, any, unknown, type, void, nvever, interface, Generics
+  |, ?, readonly, 함수에서의 사용
+*/
+
 // 기본 자료형 : number, string, boolean
 let count: number = 0;
 count += 1;
@@ -36,6 +42,46 @@ function returnNothing(): void {
   console.log("I am just saying hello world");
 }
 
+// tuple : 최솟값 가지고 순서대로 가지는 array 지정할 때 사용
+const player: [string, number, boolean] = ["LYC", 24, true];
+
+// readonly : 변경 불가능한 immutable 속성 가지게 함.
+const sports: readonly string[] = ["1", "2", "3"];
+// sports.push("1"); sports[0] = "2"; 와 같이 immutable 훼손하는 method나 명령들 막아줌.
+
+// any : typescript로부터 벗어날 수 있음.
+const number: any = [1, 2, 3, 4, 5];
+number + false; // 말도 안되는 것들 가능해짐
+
+// unknown : 변수의 타입을 알지 못할 때 사용. 타입 확인 작업이 강제됨.
+let a: unknown;
+
+if (typeof a === "number") {
+  let b = a + 1;
+}
+if (typeof a === "string") {
+  let b = a + 1;
+}
+
+// void : 함수에서 return 없으면 void.
+function hello() {
+  console.log("x");
+}
+
+// never : 함수가 절대 return하지 않을 때 발생
+function bye(): never {
+  throw new Error("xxx");
+}
+function hi(name: string | number) {
+  if (typeof name === "string") {
+    name;
+  } else if (typeof name === "number") {
+    name;
+  } else {
+    name;
+    // 절대 실행안됨 (never)
+  }
+}
 /*
     interface : 클래스 or 객체를 위한 타입 지정 시 사용되는 문법
     1. class 타입 지정. Shape 라는 interface 를 선언합니다.
@@ -134,8 +180,11 @@ type Person = {
   name: string;
   age?: number;
 };
+// 함수에서도 사용가능
+type Add = (a: number, b: number) => number;
+const add: Add = (a, b) => a + b;
 
-// &는 Intersction 으로서 두 개 이상의 타입들을 합쳐줌
+// &는 Intersection 으로서 두 개 이상의 타입들을 합쳐줌
 type Developer = Person & {
   skills: string[];
 };
