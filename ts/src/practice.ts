@@ -1,7 +1,7 @@
 /*
   number, string, boolean, array, object
   tuple, any, unknown, type, void, nvever, interface, Generics
-  |, ?, readonly, 함수에서의 사용
+  |, ?, readonly, 함수에서의 사용, overloading
 */
 
 // 기본 자료형 : number, string, boolean
@@ -82,6 +82,46 @@ function hi(name: string | number) {
     // 절대 실행안됨 (never)
   }
 }
+
+/*
+  class : public, private 이용 가능 - js에서는 없는 기능(둘 다 this로 대체됨). ts에서 보호해주는 역할.
+*/
+class Player {
+  constructor(
+    private firstName: string,
+    private lastName: string,
+    public nickname: string
+  ) {}
+}
+
+const nico = new Player("nico", "las", "니코");
+nico.nickname; // firstName, lastName은 불러올 수 없음(private)
+
+// 추상 class : 다른 클래스가 상속받을 수 있는 클래스. 직접 인스턴스를 만들 수 없음.
+abstract class User {
+  constructor(
+    private firstName: string,
+    private lastName: string,
+    public nickname: string,
+    protected callSign: string // protected: 자식 클래스에서 접근 가능한 private
+  ) {}
+  public getFullName() {
+    // 메소드에도 private, public 적용 가능
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  abstract getNickName(): void; // 추상 메소드 : 추상 클래스를 상속받는 것들이 무조건 구현을 해야하는 메소드.
+}
+class Human extends User {
+  // User class에 추상 메소드가 있으므로 무조건 구현해야 함.
+  getNickName() {
+    console.log(this.callSign);
+    // private argument들은 자식 class에서도 못 받아옴. ex) firstName, lastName
+    // 그러나 protected, public들은 접근 가능.
+  }
+}
+const LYC = new Human("yc", "L", "beigeseal", "faithfulCorder"); // new User은 불가능
+LYC.getFullName();
 /*
     interface : 클래스 or 객체를 위한 타입 지정 시 사용되는 문법
     1. class 타입 지정. Shape 라는 interface 를 선언합니다.
