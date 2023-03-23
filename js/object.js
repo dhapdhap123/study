@@ -63,3 +63,9 @@ user.fullName = "Alice Cooper";
 
 console.log(user.name); // Alice
 console.log(user.surname); // Cooper
+
+// 객체 순회 방법 : for in
+for (let i in university){
+    console.log(i)
+    console.log(university[i])
+}
